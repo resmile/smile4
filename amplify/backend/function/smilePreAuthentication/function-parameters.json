@@ -1,0 +1,17 @@
+{
+  "trigger": true,
+  "modules": [
+    "custom"
+  ],
+  "parentResource": "smile",
+  "functionName": "smilePreAuthentication",
+  "resourceName": "smilePreAuthentication",
+  "parentStack": "auth",
+  "triggerEnvs": [],
+  "triggerDir": "/snapshot/node_modules/@aws-amplify/amplify-category-auth/provider-utils/awscloudformation/triggers/PreAuthentication",
+  "triggerTemplate": "PreAuthentication.json.ejs",
+  "triggerEventPath": "PreAuthentication.event.json",
+  "roleName": "smilePreAuthentication",
+  "skipEdit": true,
+  "enableCors": false
+}

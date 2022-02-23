@@ -1,0 +1,15 @@
+@media all and (min-width: 480px) {
+    .ForgotPwd {
+      padding: 60px 0;
+    }
+  
+    .ForgotPwd form {
+      margin: 0 auto;
+      max-width: 320px;
+    }
+    .ForgotPwd h3 {
+      font-family: "Open Sans", sans-serif;
+      font-weight: 600;
+      text-align: center;
+    }
+  }
