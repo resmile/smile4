@@ -8,6 +8,8 @@ import ForgotPwd from "./containers/ForgotPwd";
 import Settings from "./containers/Settings";
 import DashBoard from "./containers/DashBoard";
 import Agreement from "./containers/Agreement";
+import Users from "./containers/Users";
+
 
 
 import AuthenticatedRoute from "./components/AuthenticatedRoute";
@@ -37,6 +39,9 @@ export default function Routes() {
 </AuthenticatedRoute>
 <AuthenticatedRoute exact path="/dashboard">
   <DashBoard />
+</AuthenticatedRoute>
+<AuthenticatedRoute exact path="/users">
+  <Users />
 </AuthenticatedRoute>
         <Route>
   <NotFound />

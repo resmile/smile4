@@ -7,7 +7,6 @@ import LoaderButton from "../components/LoaderButton";
 import { useAppContext } from "../lib/contextLib";
 import { useFormFields } from "../lib/hooksLib";
 import { onError } from "../lib/errorLib";
-import "./ForgotPwd.css";
 
 export default function Login() {
   const history = useHistory();
@@ -86,6 +85,7 @@ export default function Login() {
             type="text"
             value={fields.id}
             onChange={handleFieldChange}
+            className="mb-3"
           />
         </Form.Group>
         <Button
@@ -128,6 +128,7 @@ export default function Login() {
             type="number"
             value={code}
             onChange={(e)=>{ setCode(e.target.value)}}
+            className="mb-3"
           />
         </Form.Group>
         <Form.Group size="lg" controlId="pwd">
@@ -136,14 +137,16 @@ export default function Login() {
             type="password"
             value={fields.pwd}
             onChange={handleFieldChange}
+            className="mb-3"
           />
         </Form.Group>
         <Button
           block
           size="lg"
           type="submit"
+          className="mb-3"
         >
-          본인인증
+          비밀번호 변경
         </Button>
 
           {errorMsg && (
@@ -156,7 +159,7 @@ export default function Login() {
   }
 
   return (
-    <div className="ForgotPwd">
+    <div className="Container">
     {render[mode]}
     </div>
   );

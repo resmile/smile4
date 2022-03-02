@@ -7,7 +7,6 @@ import LoaderButton from "../components/LoaderButton";
 import { useAppContext } from "../lib/contextLib";
 import { useFormFields } from "../lib/hooksLib";
 import { onError } from "../lib/errorLib";
-import "./Login.css";
 
 export default function Login() {
   const history = useHistory();
@@ -48,6 +47,9 @@ export default function Login() {
         case "UserNotConfirmedException: User is not confirmed.":
           await  Auth.resendSignUp(fields.id);
           setMode("confirm");
+        break;
+        case "UserLambdaValidationException: PreAuthentication failed with error callback is not a function.":
+          history.push("/dashboard");
         break;
         default:
           setErrorMsg("일시적으로 알 수 없는 오류가 발생하였습니다. 잠시 후 다시 시도해주세요.");
@@ -93,6 +95,7 @@ export default function Login() {
             type="text"
             value={fields.id}
             onChange={handleFieldChange}
+            className="mb-3"
           />
         </Form.Group>
         <Form.Group size="lg" controlId="pwd">
@@ -101,6 +104,7 @@ export default function Login() {
             type="password"
             value={fields.pwd}
             onChange={handleFieldChange}
+            className="mb-3"
           />
         </Form.Group>
         <LoaderButton
@@ -109,6 +113,7 @@ export default function Login() {
           type="submit"
           isLoading={isLoading}
           disabled={!validateForm()}
+          className="mb-3"
         >
           로그인
         </LoaderButton>
@@ -165,7 +170,7 @@ export default function Login() {
   }
 
   return (
-    <div className="Login">
+    <div className="Container">
     {render[mode]}
     </div>
   );

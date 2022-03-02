@@ -26,6 +26,10 @@
         "smilePreAuthentication": {
           "deploymentBucketName": "amplify-smile4-dev-210113-deployment",
           "s3Key": "amplify-builds/smilePreAuthentication-2f4c6f4874794a506763-build.zip"
+        },
+        "AdminQueriesf4cbcea5": {
+          "deploymentBucketName": "amplify-smile4-dev-210113-deployment",
+          "s3Key": "amplify-builds/AdminQueriesf4cbcea5-73486a41536a3378494f-build.zip"
         }
       }
     }

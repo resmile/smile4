@@ -3,8 +3,6 @@ import { API } from "aws-amplify";
 import { useHistory } from "react-router-dom";
 import { onError } from "../lib/errorLib";
 import Amplify, { Auth, Hub } from "aws-amplify";
-import "./Settings.css";
-
 
 export default function Settings() {
   const history = useHistory();
@@ -69,7 +67,7 @@ export default function Settings() {
   }
 
   return (
-    <div className="Settings">
+    <div className="Container">
     {render[mode]}
     </div>
   );

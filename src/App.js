@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
+import Container from "react-bootstrap/Container";
+
 import Routes from "./Routes";
 import { LinkContainer } from "react-router-bootstrap";
 import "./App.css";
@@ -11,6 +13,22 @@ import config from './aws-exports';
 import Amplify, { Auth, Hub } from "aws-amplify";
 Amplify.configure(config);
 
+/*
+Amplify.configure({
+  Auth: {
+      identityPoolId: "ap-northeast-2:52525c8a-1b28-44fc-be77-978263de265c",
+      region: 'ap-northeast-2', // REQUIRED - Amazon Cognito Region
+      userPoolId: 'ap-northeast-2_UzQp7Bmy0', //OPTIONAL - Amazon Cognito User Pool ID
+      userPoolWebClientId: '9pfdjpuh0t7vl447f6p80b0fr', //OPTIONAL - Amazon Cognito Web Client ID
+  },
+  Storage: {
+      AWSS3: {
+          bucket: 'smile210113-dev', //REQUIRED -  Amazon S3 bucket name
+          region: 'ap-northeast-2', //OPTIONAL -  Amazon service region
+      }
+  }
+});
+*/
 
 
 function App() {
@@ -52,7 +70,7 @@ function App() {
 
   return (
     !isAuthenticating && (
-      <div className="App container py-3">
+<Container fluid>
         <Navbar collapseOnSelect bg="light" expand="md" className="mb-3">
           <LinkContainer to="/">
             <Navbar.Brand className="font-weight-bold text-muted">
@@ -66,6 +84,9 @@ function App() {
                 <>
                   <LinkContainer to="/dashboard">
                     <Nav.Link>대시보드</Nav.Link>
+                  </LinkContainer>
+                  <LinkContainer to="/users">
+                    <Nav.Link>유저리스트</Nav.Link>
                   </LinkContainer>
                   <LinkContainer to="/settings">
                     <Nav.Link>프로필</Nav.Link>
@@ -88,7 +109,7 @@ function App() {
         <AppContext.Provider value={{ isAuthenticated, userHasAuthenticated }}>
           <Routes />
         </AppContext.Provider>
-      </div>
+        </Container>
     )
   );
 }

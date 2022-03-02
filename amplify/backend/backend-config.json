@@ -72,6 +72,20 @@
       "build": true,
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
+    },
+    "AdminQueriesf4cbcea5": {
+      "service": "Lambda",
+      "providerPlugin": "awscloudformation",
+      "build": true,
+      "dependsOn": [
+        {
+          "category": "auth",
+          "resourceName": "smile",
+          "attributes": [
+            "UserPoolId"
+          ]
+        }
+      ]
     }
   },
   "storage": {
@@ -112,6 +126,30 @@
           "resourceName": "userPoolGroups",
           "attributes": [
             "buyerGroupRole"
+          ]
+        }
+      ]
+    }
+  },
+  "api": {
+    "AdminQueries": {
+      "service": "API Gateway",
+      "providerPlugin": "awscloudformation",
+      "authorizationType": "AMAZON_COGNITO_USER_POOLS",
+      "dependsOn": [
+        {
+          "category": "auth",
+          "resourceName": "smile",
+          "attributes": [
+            "UserPoolId"
+          ]
+        },
+        {
+          "category": "function",
+          "resourceName": "AdminQueriesf4cbcea5",
+          "attributes": [
+            "Arn",
+            "Name"
           ]
         }
       ]
